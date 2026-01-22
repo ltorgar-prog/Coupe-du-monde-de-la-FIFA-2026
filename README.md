@@ -1,4 +1,3 @@
-# Coupe-du-monde-de-la-FIFA-2026
 # Application Pronostics Coupe du Monde 2026 ⚽
 ## Molliet Lauper SA
 

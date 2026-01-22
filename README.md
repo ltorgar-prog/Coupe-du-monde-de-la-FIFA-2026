@@ -15,8 +15,8 @@ Une application web interactive permettant aux collaborateurs de faire des prono
 
 1. **Cloner le repository**
 ```bash
-git clone https://github.com/votre-username/worldcup-2026.git
-cd worldcup-2026
+git clone https://github.com/ltorgar-prog/Coupe-du-monde-de-la-FIFA-2026.git
+cd coupemond-2026
 ```
 
 2. **Créer un environnement virtuel**
@@ -26,8 +26,6 @@ python -m venv venv
 # Sur Windows
 venv\Scripts\activate
 
-# Sur macOS/Linux
-source venv/bin/activate
 ```
 
 3. **Installer les dépendances**
@@ -36,7 +34,7 @@ pip install -r requirements.txt
 ```
 
 4. **Structure des fichiers**
-Assurez-vous d'avoir la structure suivante :
+Structure suivante :
 ```
 worldcup_app/
 ├── app.py
@@ -65,7 +63,7 @@ python app.py
 ```
 
 6. **Accéder à l'application**
-Ouvrez votre navigateur et allez sur : `http://localhost:5000`
+Allez sur : `http://localhost:5000`
 
 ---
 
@@ -93,15 +91,15 @@ Ouvrez votre navigateur et allez sur : `http://localhost:5000`
 ## 🎮 Utilisation
 
 ### Connexion
-1. Entrez votre prénom sur la page de connexion
-2. Vous serez automatiquement enregistré si c'est votre première connexion
+1. Entrez le prénom sur la page de connexion
+2. Vous serez automatiquement enregistré si c'est la première connexion
 
 ### Faire un pronostic
 1. Allez sur "Matchs"
 2. Choisissez un match qui n'a pas encore commencé
-3. Entrez votre pronostic de score
+3. Entrez le pronostic de score
 4. Cliquez sur "Valider mon pronostic"
-5. Vous pouvez modifier votre pronostic jusqu'au début du match
+5. Modifier votre pronostic jusqu'au début du match
 
 ### Voir le classement
 1. Allez sur "Classement"
@@ -168,8 +166,8 @@ Modifiez les variables CSS dans `static/css/style.css` :
 ```
 
 ### Logo de l'entreprise
-Pour ajouter votre vrai logo :
-1. Placez votre logo dans `static/images/logo.png`
+Pour ajouter le logo :
+1. Placez le logo dans `static/images/logo.png`
 2. Modifiez les templates pour afficher l'image :
 ```html
 <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
@@ -243,7 +241,6 @@ heroku open
 Pour toute question ou problème :
 1. Vérifiez la documentation ci-dessus
 2. Consultez les logs d'erreur
-3. Contactez votre administrateur système
 
 ---
 

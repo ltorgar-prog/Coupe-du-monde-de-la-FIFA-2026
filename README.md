@@ -5,7 +5,7 @@ Une application web interactive permettant aux collaborateurs de faire des prono
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ### Prérequis
 - Python 3.8 ou supérieur
@@ -67,7 +67,7 @@ Allez sur : `http://localhost:5000`
 
 ---
 
-## 📋 Fonctionnalités
+## Fonctionnalités
 
 ### Pour les utilisateurs
 - ✅ Connexion avec prénom (pas d'anonymat)
@@ -88,7 +88,7 @@ Allez sur : `http://localhost:5000`
 
 ---
 
-## 🎮 Utilisation
+## Utilisation
 
 ### Connexion
 1. Entrez le prénom sur la page de connexion
@@ -145,7 +145,7 @@ def calculate_points(prediction, actual):
 
 ---
 
-## 📦 Fichier requirements.txt
+## Fichier requirements.txt
 ```
 Flask==3.0.0
 Werkzeug==3.0.1
@@ -193,7 +193,7 @@ app.secret_key = 'VOTRE_CLE_SECRETE_UNIQUE_ET_COMPLEXE'
 
 ---
 
-## 🚀 Déploiement
+## Déploiement
 
 ### Hébergement recommandé
 - **Heroku** (facile, gratuit pour débuter)
@@ -249,7 +249,3 @@ Pour toute question ou problème :
 © 2026 Molliet Lauper SA - Usage interne uniquement
 
 ---
-
-## 🎉 Bonne chance à tous les participants !
-
-Que le meilleur gagne ! ⚽🏆

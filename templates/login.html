@@ -1,0 +1,38 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Pronostics Coupe du Monde 2026</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-page">
+    <div class="football-background"></div>
+    <div class="login-container">
+        <div class="company-logo">
+            <h1>⚽ Molliet Lauper SA</h1>
+            <p class="subtitle">Pronostics Coupe du Monde 2026</p>
+        </div>
+        
+        <div class="login-card">
+            <h2>🏆 Bienvenue !</h2>
+            <p>Entrez votre prénom pour participer</p>
+            
+            <form method="POST" action="{{ url_for('login') }}">
+                <div class="input-group">
+                    <input type="text" name="prenom" placeholder="Votre prénom" required autofocus>
+                </div>
+                <button type="submit" class="btn-primary">
+                    Commencer à pronostiquer
+                </button>
+            </form>
+        </div>
+        
+        <div class="tournament-info">
+            <p>🌎 Canada • États-Unis • Mexique</p>
+            <p>📅 11 juin - 19 juillet 2026</p>
+        </div>
+    </div>
+</body>
+</html>

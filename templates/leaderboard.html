@@ -1,0 +1,72 @@
+<!-- templates/leaderboard.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classement - Pronostics Coupe du Monde 2026</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">⚽ Molliet Lauper SA</div>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">Accueil</a>
+                <a href="{{ url_for('matches') }}">Matchs</a>
+                <a href="{{ url_for('leaderboard') }}" class="active">Classement</a>
+                <a href="{{ url_for('admin') }}">Admin</a>
+            </div>
+            <div class="user-info">
+                👤 {{ current_user }} | <a href="{{ url_for('logout') }}">Déconnexion</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>🏅 Classement des participants</h1>
+        
+        <div class="leaderboard-container">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Participant</th>
+                        <th>Points</th>
+                        <th>Pronostics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr class="{% if user.prenom == current_user %}highlight{% endif %}">
+                        <td class="position">
+                            {% if loop.index == 1 %}
+                                🥇
+                            {% elif loop.index == 2 %}
+                                🥈
+                            {% elif loop.index == 3 %}
+                                🥉
+                            {% else %}
+                                {{ loop.index }}
+                            {% endif %}
+                        </td>
+                        <td class="player-name">
+                            {{ user.prenom }}
+                            {% if user.prenom == current_user %}
+                                <span class="badge">Vous</span>
+                            {% endif %}
+                        </td>
+                        <td class="points">{{ user.points }}</td>
+                        <td class="predictions">{{ user.predictions_count }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="prize-info">
+            <h2>🎁 Le gagnant remportera un prix offert par Molliet Lauper SA !</h2>
+        </div>
+    </div>
+</body>
+</html>

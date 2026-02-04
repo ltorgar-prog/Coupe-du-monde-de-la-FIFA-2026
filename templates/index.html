@@ -1,0 +1,76 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Pronostics Coupe du Monde 2026</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">⚽ Molliet Lauper SA</div>
+            <div class="nav-links">
+                <a href="{{ url_for('matches') }}">Matchs</a>
+                <a href="{{ url_for('leaderboard') }}">Classement</a>
+                <a href="{{ url_for('admin') }}">Admin</a>
+            </div>
+            <div class="user-info">
+                👤 {{ user }} | <a href="{{ url_for('logout') }}">Déconnexion</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <h1>🏆 Coupe du Monde FIFA 2026</h1>
+            <p class="hero-subtitle">Faites vos pronostics et gagnez des points !</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="card-icon">⚽</div>
+                <h3>Faire mes pronostics</h3>
+                <p>Pronostiquez les scores des matchs à venir</p>
+                <a href="{{ url_for('matches') }}" class="btn-primary">Voir les matchs</a>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-icon">🏅</div>
+                <h3>Classement</h3>
+                <p>Consultez le classement des participants</p>
+                <a href="{{ url_for('leaderboard') }}" class="btn-secondary">Voir le classement</a>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-icon">⚙️</div>
+                <h3>Administration</h3>
+                <p>Entrer les résultats des matchs (Admin)</p>
+                <a href="{{ url_for('admin') }}" class="btn-secondary">Panel admin</a>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>📋 Comment ça marche ?</h2>
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <span class="rule-number">1</span>
+                    <h4>Faites vos pronostics</h4>
+                    <p>Avant le début de chaque match, indiquez le score que vous prédisez</p>
+                </div>
+                <div class="rule-card">
+                    <span class="rule-number">2</span>
+                    <h4>Gagnez des points</h4>
+                    <p>Score exact: 5 pts | Différence de buts: 3 pts | Bon vainqueur: 2 pts</p>
+                </div>
+                <div class="rule-card">
+                    <span class="rule-number">3</span>
+                    <h4>Remportez le prix</h4>
+                    <p>Le participant avec le plus de points remporte le prix de l'entreprise !</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!-- templates/matches.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matchs - Pronostics Coupe du Monde 2026</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">⚽ Molliet Lauper SA</div>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">Accueil</a>
+                <a href="{{ url_for('matches') }}" class="active">Matchs</a>
+                <a href="{{ url_for('leaderboard') }}">Classement</a>
+                <a href="{{ url_for('admin') }}">Admin</a>
+            </div>
+            <div class="user-info">
+                👤 {{ user }} | <a href="{{ url_for('logout') }}">Déconnexion</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>⚽ Matchs de la Coupe du Monde</h1>
+        
+        <div class="matches-list">
+            {% for match_id, match in matches.items() %}
+            <div class="match-card {% if match.finished %}finished{% endif %}">
+                <div class="match-header">
+                    <span class="match-stage">{{ match.stage }} - Groupe {{ match.group }}</span>
+                    <span class="match-date">📅 {{ match.date }} à {{ match.time }}</span>
+                </div>
+                
+                <div class="match-teams">
+                    <div class="team">
+                        <span class="team-flag">🇨🇦</span>
+                        <span class="team-name">{{ match.team1 }}</span>
+                    </div>
+                    
+                    <div class="match-score">
+                        {% if match.finished %}
+                            <span class="score-display">{{ match.score1 }} - {{ match.score2 }}</span>
+                        {% else %}
+                            <span class="vs">VS</span>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="team">
+                        <span class="team-name">{{ match.team2 }}</span>
+                        <span class="team-flag">🇲🇽</span>
+                    </div>
+                </div>
+                
+                {% if not match.finished %}
+                <div class="prediction-section">
+                    <h4>Votre pronostic :</h4>
+                    <form class="prediction-form" data-match-id="{{ match_id }}">
+                        <div class="score-inputs">
+                            <input type="number" 
+                                   name="score1" 
+                                   min="0" 
+                                   max="20" 
+                                   value="{% if match.user_prediction %}{{ match.user_prediction.score1 }}{% endif %}"
+                                   placeholder="0">
+                            <span class="separator">-</span>
+                            <input type="number" 
+                                   name="score2" 
+                                   min="0" 
+                                   max="20" 
+                                   value="{% if match.user_prediction %}{{ match.user_prediction.score2 }}{% endif %}"
+                                   placeholder="0">
+                        </div>
+                        <button type="submit" class="btn-predict">
+                            {% if match.user_prediction %}
+                                Modifier mon pronostic
+                            {% else %}
+                                Valider mon pronostic
+                            {% endif %}
+                        </button>
+                    </form>
+                </div>
+                {% else %}
+                <div class="match-result">
+                    {% if match.user_prediction %}
+                        <p>Votre pronostic : {{ match.user_prediction.score1 }} - {{ match.user_prediction.score2 }}</p>
+                    {% else %}
+                        <p>Vous n'avez pas fait de pronostic pour ce match</p>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

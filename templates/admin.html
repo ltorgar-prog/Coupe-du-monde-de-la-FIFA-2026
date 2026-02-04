@@ -1,0 +1,89 @@
+<!-- templates/admin.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Résultats</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">⚽ Molliet Lauper SA</div>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">Accueil</a>
+                <a href="{{ url_for('matches') }}">Matchs</a>
+                <a href="{{ url_for('leaderboard') }}">Classement</a>
+                <a href="{{ url_for('admin') }}" class="active">Admin</a>
+            </div>
+            <div class="user-info">
+                <a href="{{ url_for('logout') }}">Déconnexion</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>⚙️ Panel d'administration</h1>
+        <p class="admin-subtitle">Entrez les résultats des matchs terminés</p>
+        
+        <div class="matches-list">
+            {% for match_id, match in matches.items() %}
+            <div class="match-card admin-card">
+                <div class="match-header">
+                    <span class="match-stage">{{ match.stage }} - Groupe {{ match.group }}</span>
+                    <span class="match-date">{{ match.date }} à {{ match.time }}</span>
+                    {% if match.finished %}
+                        <span class="status-badge finished-badge">✅ Terminé</span>
+                    {% else %}
+                        <span class="status-badge pending-badge">⏳ En attente</span>
+                    {% endif %}
+                </div>
+                
+                <div class="match-teams">
+                    <div class="team">
+                        <span class="team-name">{{ match.team1 }}</span>
+                    </div>
+                    <div class="match-score">
+                        <span class="vs">VS</span>
+                    </div>
+                    <div class="team">
+                        <span class="team-name">{{ match.team2 }}</span>
+                    </div>
+                </div>
+                
+                <div class="admin-section">
+                    <h4>Entrer le résultat :</h4>
+                    <form class="result-form" data-match-id="{{ match_id }}">
+                        <div class="score-inputs">
+                            <input type="number" 
+                                   name="score1" 
+                                   min="0" 
+                                   max="20" 
+                                   value="{% if match.score1 is not none %}{{ match.score1 }}{% endif %}"
+                                   placeholder="Score {{ match.team1 }}">
+                            <span class="separator">-</span>
+                            <input type="number" 
+                                   name="score2" 
+                                   min="0" 
+                                   max="20" 
+                                   value="{% if match.score2 is not none %}{{ match.score2 }}{% endif %}"
+                                   placeholder="Score {{ match.team2 }}">
+                        </div>
+                        <button type="submit" class="btn-admin">
+                            {% if match.finished %}
+                                Modifier le résultat
+                            {% else %}
+                                Valider le résultat
+                            {% endif %}
+                        </button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

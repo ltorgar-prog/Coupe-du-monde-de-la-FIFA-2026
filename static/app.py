@@ -89,7 +89,6 @@ def init_data_files():
                 "id": "5",
                 "team1": "Angleterre",
                 "team2": "Italie",
-                "flag1": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
                 "flag2": "🇮🇹",
                 "date": "2026-06-15",
                 "time": "19:00",
@@ -277,33 +276,9 @@ def update_result(match_id):
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
-```
 
-5. **Scrollez en bas** et cliquez sur **"Commit new file"**
-
----
-
-### **Option 2 : Sur votre ordinateur puis upload**
-
-Si vous préférez créer le fichier sur votre ordinateur :
-
-1. Ouvrez un éditeur de texte (Notepad++, VS Code, ou même Bloc-notes)
-2. Copiez le code ci-dessus
-3. Sauvegardez le fichier comme `app.py`
-4. Sur GitHub, cliquez sur **"Add file"** → **"Upload files"**
-5. Glissez-déposez `app.py`
-6. Cliquez sur **"Commit changes"**
-
----
-
-## ✅ **Après avoir créé app.py :**
-
-Votre structure devrait ressembler à ça :
-```
-✅ app.py
-✅ requirements.txt (déjà créé)
-✅ README.md (déjà créé)
 ⏳ .gitignore (à créer)
 ⏳ dossiers: templates/, static/, data/
+
 
 

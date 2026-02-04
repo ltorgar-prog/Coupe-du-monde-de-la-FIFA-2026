@@ -89,7 +89,7 @@ def init_data_files():
                 "id": "5",
                 "team1": "Angleterre",
                 "team2": "Italie",
-                "flag1": "🏴󠁧󠁢󠁥󠁮󠁧󠁿&#917631",
+                "flag1": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
                 "flag2": "🇮🇹",
                 "date": "2026-06-15",
                 "time": "19:00",
@@ -305,4 +305,5 @@ Votre structure devrait ressembler à ça :
 ✅ README.md (déjà créé)
 ⏳ .gitignore (à créer)
 ⏳ dossiers: templates/, static/, data/
+
 
